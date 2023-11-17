@@ -7,18 +7,21 @@
 </head>
 <body>
     <?php
-        $book = "Rich Dad Poor Dad";
-        $read = true;
-
-        if($read) {
-            $message = "You have read $book";
-        } else {
-            $message = "You have NOT read $book";
-        }
+        $books = [
+            "Rich Dad Poor Dad",
+            "Friends",
+            "Attack On Titan",
+        ];
     ?>
     <h1>
-        
-        <?= $message ?>
+        <h1>Recommended Books</h1>
+        <ul>
+            <?php
+                foreach($books as $book) {
+                    echo "<li>$book</li>";
+                }
+            ?>
+        </ul>
     </h1>
 </body>
 </html>
