@@ -9,5 +9,5 @@ function dd($value) {
 }
 
 function urlIs($url) {
-    return $_SERVER['REQUEST_URI'] === $url;
+    return parse_url($_SERVER['REQUEST_URI'])['path'] === $url;
 }

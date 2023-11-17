@@ -6,7 +6,7 @@ $routes = [
     '/contact' => 'controllers/contact.php',
 ];
 
-$uri = $_SERVER['REQUEST_URI'];
+$uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
 function abort($code = 404) {
     http_response_code($code);
