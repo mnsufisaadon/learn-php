@@ -16,11 +16,9 @@
     <h1>
         <h1>Recommended Books</h1>
         <ul>
-            <?php
-                foreach($books as $book) {
-                    echo "<li>$book</li>";
-                }
-            ?>
+            <?php foreach ($books as $book) : ?>
+                <li><?= "{$book}™" ?></li>
+            <?php endforeach ?>
         </ul>
     </h1>
 </body>
