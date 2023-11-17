@@ -18,12 +18,29 @@
                 'author' => 'Richard',
                 'purchaseUrl' => 'http://example.com',
             ],
+            [
+                'name' => 'How to Make Money',
+                'author' => 'Robert Kiyosaki',
+                'purchaseUrl' => 'http://localhost',
+            ],
         ];
+
+        function filterByAuthor($books, $author) {
+            $filteredBooks = [];
+            
+            foreach ($books as $book) {
+                if ($book['author'] === $author) {
+                    $filteredBooks[] = $book;
+                }
+            }
+
+            return $filteredBooks;
+        }
     ?>
     <h1>
         <h1>Recommended Books</h1>
         <ul>
-            <?php foreach ($books as $book) : ?>
+            <?php foreach (filterByAuthor($books, 'Robert Kiyosaki') as $book) : ?>
                 <li>
                     <a href="<?= $book['purchaseUrl'] ?>">
                         <?= "{$book['name']}™" ?>
