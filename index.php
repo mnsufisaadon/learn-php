@@ -25,11 +25,11 @@
             ],
         ];
 
-        function filterByAuthor($books, $author) {
+        function filterByAuthor($books, $fn) {
             $filteredBooks = [];
 
             foreach ($books as $book) {
-                if ($book['author'] === $author) {
+                if ($fn($book)) {
                     $filteredBooks[] = $book;
                 }
             }
@@ -37,7 +37,9 @@
             return $filteredBooks;
         }
 
-        $filteredBooks = filterByAuthor($books, 'Richard');
+        $filteredBooks = filterByAuthor($books, function($book) {
+            return $book['author'] === 'Robert Kiyosaki';
+        });
     ?>
     <h1>
         <h1>Recommended Books</h1>
