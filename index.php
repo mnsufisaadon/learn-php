@@ -6,9 +6,14 @@
     <title>Learn PHP</title>
 </head>
 <body>
+    <?php
+        $greeting = "Hello";
+        $subject = "World";
+    ?>
     <h1>
+        
         <?php
-            echo "Hello World!"
+            echo $greeting . " " . $subject;
         ?>
     </h1>
 </body>
