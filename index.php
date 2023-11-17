@@ -9,12 +9,11 @@
     <?php
         $greeting = "Hello";
         $subject = "World";
+        $message = "$greeting $subject!"
     ?>
     <h1>
         
-        <?php
-            echo "$greeting $subject!";
-        ?>
+        <?= $message; ?>
     </h1>
 </body>
 </html>
