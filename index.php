@@ -1,7 +1,11 @@
 <?php
 
-require('./functions.php');
+require('functions.php');
 
-$banner = "Home";
-
-require "views/index.view.php";
+if (urlIs('/')) {
+    require('controllers/index.php');
+} else if (urlIs('/about')) {
+    require('controllers/about.php');
+} else if (urlIs('/contact')) {
+    require('controllers/contact.php');
+}
