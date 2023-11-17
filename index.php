@@ -25,20 +25,8 @@
             ],
         ];
 
-        function filterByAuthor($books, $fn) {
-            $filteredBooks = [];
-
-            foreach ($books as $book) {
-                if ($fn($book)) {
-                    $filteredBooks[] = $book;
-                }
-            }
-
-            return $filteredBooks;
-        }
-
-        $filteredBooks = filterByAuthor($books, function($book) {
-            return $book['author'] === 'Robert Kiyosaki';
+        $filteredBooks = array_filter($books, function($book) {
+            return $book['author'] === 'Richard';
         });
     ?>
     <h1>
