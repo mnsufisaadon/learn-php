@@ -7,13 +7,18 @@
 </head>
 <body>
     <?php
-        $greeting = "Hello";
-        $subject = "World";
-        $message = "$greeting $subject!"
+        $book = "Rich Dad Poor Dad";
+        $read = true;
+
+        if($read) {
+            $message = "You have read $book";
+        } else {
+            $message = "You have NOT read $book";
+        }
     ?>
     <h1>
         
-        <?= $message; ?>
+        <?= $message ?>
     </h1>
 </body>
 </html>
