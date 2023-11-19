@@ -5,7 +5,7 @@ $db = new Database($config['database']);
 
 $query = "select * from notes where user_id = 1";
 
-$notes = $db->query($query)->fetchAll();
+$notes = $db->query($query)->findAll();
 
 $banner = "My Notes";
 
