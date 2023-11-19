@@ -4,7 +4,11 @@
 
 <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-        <h1>Hello! This is Notes page.</h1>
+        <!-- <ul> -->
+            <?php foreach ($notes as $note) : ?>
+                <li><?= $note['body'] ?></li>
+            <?php endforeach ?>
+        <!-- </ul> -->
     </div>
 </main>
 
