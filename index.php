@@ -1,15 +1,18 @@
 <?php
 
 require('functions.php');
-// require('routes.php');
 require('Database.php');
+// require('routes.php');
 
 $config = require('config.php');
 
 $db = new Database($config['database']);
-$posts = $db->query('select * from posts')->fetchAll();
 
-foreach ($posts as $post) {
-    echo "<li>{$post['title']}</li>";
-}
+$id = $_GET['id'];
 
+$query = "select * from posts where id = $id";
+
+
+$posts = $db->query($query)->fetch();
+
+dd($posts);
