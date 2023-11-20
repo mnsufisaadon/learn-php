@@ -10,7 +10,8 @@
                 href="/notes"
             >Go Back...</a>
         </p>
-        <p><?= $note['body'] ?></p>
+        <!-- We need to sanitize the response so that we can prevent threat! eg of input: <script>alert('Hello There')</script> -->
+        <p><?= htmlspecialchars($note['body']) ?></p>
     </div>
 </main>
 

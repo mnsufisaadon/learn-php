@@ -11,7 +11,8 @@
                         class="text-blue-500 hover:underline"
                         href="/note?id=<?= $note['id'] ?>"
                     >
-                        <?= $note['body'] ?>
+                        <!-- We need to sanitize the response so that we can prevent threat! eg of input: <script>alert('Hello There')</script> -->
+                        <?= htmlspecialchars($note['body']) ?>
                     </a>
                 </li>
             <?php endforeach ?>
