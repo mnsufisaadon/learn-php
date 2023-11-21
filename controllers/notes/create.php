@@ -1,7 +1,7 @@
 <?php
 
-require 'Validator.php';
-$config = require 'config.php';
+require base_path('Validator.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 $banner = "Create new note";
@@ -24,4 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-require 'views/notes/create.view.php';
+view('notes/create.view.php', [
+    'banner' => 'Create new note',
+    'errors' => $errors,
+]);
