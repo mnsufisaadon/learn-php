@@ -1,6 +1,6 @@
 <?php
 
-$config = require('config.php');
+$config = require 'config.php';
 $db = new Database($config['database']);
 
 $currentUserId = 1;
@@ -16,4 +16,4 @@ authorize($note['user_id'] === $currentUserId);
 
 $banner = "Note";
 
-require "views/note.view.php";
+require 'views/notes/show.view.php';
