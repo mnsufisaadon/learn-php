@@ -12,6 +12,11 @@
         </p>
         <!-- We need to sanitize the response so that we can prevent threat! eg of input: <script>alert('Hello There')</script> -->
         <p><?= htmlspecialchars($note['body']) ?></p>
+
+        <form class="mt-6" method="POST">
+            <input type="hidden" value="<?= $note['id'] ?>">
+            <button class="text-red-500">Delete</button>
+        </form>
     </div>
 </main>
 
