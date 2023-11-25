@@ -4,7 +4,7 @@ use Core\App;
 use Core\Database;
 use Core\Validator;
 
-$db = App::container()->resolve('Core\Database');
+$db = App::resolve(Database::class);
 
 $errors = [];
 
