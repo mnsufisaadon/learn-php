@@ -1,6 +1,8 @@
 <?php
 //to start the server, need to run 'php -S localhost:8888 -t public'
 
+session_start();
+
 const BASE_PATH = __DIR__ . '/../';
 
 
