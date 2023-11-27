@@ -41,12 +41,10 @@ $user = $db->query('select * from users where email = :email', [
 if ($user) {
 
     if (password_verify($password, $user['password'])) {
-    
-        $_SESSION['user'] = [
+        
+        login([
             'email' => $email,
-        ];
-
-        session_regenerate_id();
+        ]);
         
         header('location: /');
         exit();
