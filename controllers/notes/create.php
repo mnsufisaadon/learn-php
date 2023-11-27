@@ -1,6 +1,6 @@
 <?php
 
 view('notes/create.view.php', [
-    'banner' => 'Create new note',
+    'banner' => 'New note',
     'errors' => [],
 ]);

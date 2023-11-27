@@ -5,7 +5,6 @@ use Core\Database;
 
 $db = App::resolve(Database::class);
 
-$banner = "Note";
 $currentUserId = 1;
 
 
