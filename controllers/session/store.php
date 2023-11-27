@@ -45,6 +45,8 @@ if ($user) {
         $_SESSION['user'] = [
             'email' => $email,
         ];
+
+        session_regenerate_id();
         
         header('location: /');
         exit();
