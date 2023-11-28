@@ -2,7 +2,7 @@
 
 use Core\App;
 use Core\Database;
-use Core\Forms\LoginForm;
+use Http\Forms\LoginForm;
 
 $email = $_POST['email'];
 $password = $_POST['password'];
