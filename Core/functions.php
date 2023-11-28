@@ -38,15 +38,12 @@ function view($path, $attributes = []) {
     return require base_path('views/' . $path);
 }
 
-function login($user) {
-    
-    $_SESSION['user'] = $user;
-
-    session_regenerate_id();
+function redirect($path) {
+    header("location: {$path}");
+    exit();
 }
 
 function logout() {
-
     $_SESSION = [];
 
     session_destroy();

@@ -39,9 +39,7 @@ $isEmailExist = $db->query('select * from users where email = :email', [
 
 if ($isEmailExist) {
 
-    header('location: /');
-    exit();
-
+    redirect('/');
 } else {
 
     $db->query('INSERT INTO users (email, password) VALUES (:email, :password)', [
@@ -58,5 +56,4 @@ $_SESSION['user'] = [
     'email' => $email,
 ];
 
-header('location: /');
-exit();
+redirect('/');

@@ -22,5 +22,4 @@ $delete = $db->query($query, [
     'id' => $_POST['id'],
 ]);
 
-header('location: /notes');
-exit();
+redirect('/notes');

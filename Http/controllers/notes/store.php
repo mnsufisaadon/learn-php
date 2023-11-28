@@ -27,5 +27,4 @@ $db->query("INSERT INTO `learn_php`.`notes` (`body`, `user_id`) VALUES (:body, :
     'user_id' => 1,
 ]);
 
-header('location: /notes');
-exit();
+redirect('/notes');

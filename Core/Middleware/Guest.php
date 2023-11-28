@@ -8,8 +8,7 @@ class Guest {
     {
 
         if ($_SESSION['user'] ?? false) {
-            header('location: /');
-            exit();
+            redirect('/');
         }
 
     }
