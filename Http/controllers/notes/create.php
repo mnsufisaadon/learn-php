@@ -2,5 +2,5 @@
 
 view('notes/create.view.php', [
     'banner' => 'New note',
-    'errors' => [],
+    'errors' => $_SESSION['_flash']['errors'] ?? [],
 ]);

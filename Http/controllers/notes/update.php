@@ -34,11 +34,9 @@ if (! Validator::string($_POST['body'], 1, 1000)) {
 
 if (! empty($errors)) {
 
-    return view('notes/edit.view.php', [
-        'banner' => 'Create new note',
-        'errors' => $errors,
-        'note' => $note,
-    ]);
+    $_SESSION['_flash']['errors'] = $errors;
+
+    redirect("/note/edit?id={$_POST['id']}");
 }
 
 // if everything ok, update the note

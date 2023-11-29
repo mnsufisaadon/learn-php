@@ -19,6 +19,6 @@ authorize($note['user_id'] === $currentUserId);
 
 view('notes/edit.view.php', [
     'banner' => 'Edit Note',
-    'errors' => [],
+    'errors' => $_SESSION['_flash']['errors'] ?? [],
     'note' => $note,
 ]);

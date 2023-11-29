@@ -21,9 +21,10 @@ if (! Validator::string($password, 7, 255)) {
 // if error exists, redirect
 
 if (! empty($errors)) {
-    return view('registration/create.view.php', [
-        'errors' => $errors,
-    ]);
+
+    $_SESSION['_flash']['errors'] = $errors;
+
+    redirect('/register');
 }
 
 // if no error, check unique email

@@ -22,9 +22,9 @@ if ($validate) {
     $form->error('email', 'Wrong credentials');
 }
 
-return view('session/create.view.php', [
-    'errors' => $form->errors(),
-]);
+$_SESSION['_flash']['errors'] = $form->errors();
+
+redirect('/login');
 
 
 

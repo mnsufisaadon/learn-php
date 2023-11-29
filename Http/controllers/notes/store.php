@@ -16,10 +16,9 @@ if (! Validator::string($_POST['body'], 1, 1000)) {
 
 if (! empty($errors)) {
 
-    return view('notes/create.view.php', [
-        'banner' => 'Create new note',
-        'errors' => $errors,
-    ]);
+    $_SESSION['_flash']['errors'] = $errors;
+
+    redirect('/notes/create');
 }
 
 $db->query("INSERT INTO `learn_php`.`notes` (`body`, `user_id`) VALUES (:body, :user_id)", [
