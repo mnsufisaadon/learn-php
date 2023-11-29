@@ -1,6 +1,8 @@
 <?php
 
+use Core\Session;
+
 view('notes/create.view.php', [
     'banner' => 'New note',
-    'errors' => $_SESSION['_flash']['errors'] ?? [],
+    'errors' => Session::get('errors'),
 ]);

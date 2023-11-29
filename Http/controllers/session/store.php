@@ -1,6 +1,7 @@
 <?php
 
 use Core\Authenticator;
+use Core\Session;
 use Http\Forms\LoginForm;
 
 
@@ -22,7 +23,7 @@ if ($validate) {
     $form->error('email', 'Wrong credentials');
 }
 
-$_SESSION['_flash']['errors'] = $form->errors();
+Session::flash('errors', $form->errors());
 
 redirect('/login');
 

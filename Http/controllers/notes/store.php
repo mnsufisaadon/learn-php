@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 use Core\Validator;
 
 $db = App::resolve(Database::class);
@@ -15,8 +16,8 @@ if (! Validator::string($_POST['body'], 1, 1000)) {
 }
 
 if (! empty($errors)) {
-
-    $_SESSION['_flash']['errors'] = $errors;
+    
+    Session::flash('errors', $errors);
 
     redirect('/notes/create');
 }

@@ -2,6 +2,7 @@
 
 use Core\App;
 use Core\Database;
+use Core\Session;
 use Core\Validator;
 
 $email = $_POST['email'];
@@ -22,7 +23,7 @@ if (! Validator::string($password, 7, 255)) {
 
 if (! empty($errors)) {
 
-    $_SESSION['_flash']['errors'] = $errors;
+    Session::flash('errors', $errors);
 
     redirect('/register');
 }
@@ -53,8 +54,8 @@ if ($isEmailExist) {
 
 // mark user has logged in
 
-$_SESSION['user'] = [
+Session::put('user', [
     'email' => $email,
-];
+]);
 
 redirect('/');
