@@ -24,6 +24,10 @@ if (! Validator::string($password, 7, 255)) {
 if (! empty($errors)) {
 
     Session::flash('errors', $errors);
+    
+    Session::flash('old', [
+        'email' => $email,
+    ]);
 
     redirect('/register');
 }

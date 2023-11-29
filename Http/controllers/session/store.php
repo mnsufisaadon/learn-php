@@ -25,6 +25,10 @@ if ($validate) {
 
 Session::flash('errors', $form->errors());
 
+Session::flash('old', [
+    'email' => $_POST['email'],
+]);
+
 redirect('/login');
 
 

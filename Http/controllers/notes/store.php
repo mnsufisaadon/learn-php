@@ -18,6 +18,10 @@ if (! Validator::string($_POST['body'], 1, 1000)) {
 if (! empty($errors)) {
     
     Session::flash('errors', $errors);
+    
+    Session::flash('old', [
+        'body' => $_POST['body'],
+    ]);
 
     redirect('/notes/create');
 }
