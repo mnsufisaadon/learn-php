@@ -2,34 +2,34 @@
 
 use Core\Authenticator;
 use Core\Session;
+use Core\ValidationException;
 use Http\Forms\LoginForm;
 
 
-$form = new LoginForm;
+try {
+    $form = LoginForm::validate($attributes = [
+        'email' => $_POST['email'],
+        'password' => $_POST['password'],
+    ]);
+} catch(ValidationException $exception) {
 
-$validate = $form->validate([
-    'email' => $_POST['email'],
-    'password' => $_POST['password'],
-]);
+    Session::flash('errors', $exception->errors());
 
-if ($validate) {
+    Session::flash('old', $exception->old());
 
-    $auth = new Authenticator;
-
-    if ($auth->attempt($_POST['email'], $_POST['password'])) {
-        redirect('/');
-    }
-
-    $form->error('email', 'Wrong credentials');
+    redirect('/login');
 }
 
-Session::flash('errors', $form->errors());
 
-Session::flash('old', [
-    'email' => $_POST['email'],
-]);
+
+$auth = new Authenticator;
+
+if ($auth->attempt($attributes['email'], $attributes['password'])) {
+    redirect('/');
+}
+
+$form->error('email', 'Wrong credentials');
 
 redirect('/login');
-
 
 
