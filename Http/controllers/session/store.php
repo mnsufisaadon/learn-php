@@ -6,30 +6,16 @@ use Core\ValidationException;
 use Http\Forms\LoginForm;
 
 
-try {
-    $form = LoginForm::validate($attributes = [
-        'email' => $_POST['email'],
-        'password' => $_POST['password'],
-    ]);
-} catch(ValidationException $exception) {
+$form = LoginForm::validate($attributes = [
+    'email' => $_POST['email'],
+    'password' => $_POST['password'],
+]);
 
-    Session::flash('errors', $exception->errors());
+$signedIn = (new Authenticator)->attempt($attributes['email'], $attributes['password']);
 
-    Session::flash('old', $exception->old());
-
-    redirect('/login');
+if (! $signedIn) {
+    $form->error('email', 'Wrong credentials')->throw();
 }
 
-
-
-$auth = new Authenticator;
-
-if ($auth->attempt($attributes['email'], $attributes['password'])) {
-    redirect('/');
-}
-
-$form->error('email', 'Wrong credentials');
-
-redirect('/login');
-
+redirect('/');
 
